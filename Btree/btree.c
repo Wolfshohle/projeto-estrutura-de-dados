@@ -9,8 +9,8 @@ struct btree
 {
   int number_keys;
   int is_leaf;
-  int keys[T-1];
-  BTREE *childs[T];
+  int keys[T];
+  BTREE *childs[T+1];
 };
 
 //cria um novo no da arvore b
@@ -71,6 +71,7 @@ BTREE* insert(BTREE *root, int key)
     {
       BTREE *new_root = create_btree();
       new_root->is_leaf = 0;
+      new_root->childs[0] = root;
       new_root = split(new_root, 0);
     }
     else
