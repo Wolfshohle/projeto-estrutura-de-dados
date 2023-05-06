@@ -2,7 +2,7 @@
 
 # ESTRUTURA DE DADOS
 Projeto feto para a matérica de estrutura de dados UFAL - A.C.simões - Maceió - AL
-Alunos:CARLOS VINICIUS DE SOUZA, JOÃO PEDRO SIMÕES DA SILVA SOUZA, MATHEUS ALMEIDA SOUZA.
+Alunos:Carlos Vinicius de Souza, João Pedro Simões da Silva Souza e Matheus Almeida Souza.
 
 # HUFFMAN
 Projeto de um compactador e descompactador de dados sem perdas. Todas as funções estão documentadas no formato java doc.
