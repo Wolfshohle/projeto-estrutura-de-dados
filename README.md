@@ -1,7 +1,7 @@
 <img src="/assets/logoic.png" alt="Logo IC">
 
 # ESTRUTURA DE DADOS
-Projeto feto para a matérica de estrutura de dados UFAL - A.C.simões - Maceió - AL.
+Projeto feto para a matérica de estrutura de dados UFAL - A.C.simões - Maceió - AL.<br>
 Alunos:Carlos Vinicius de Souza, João Pedro Simões da Silva Souza e Matheus Almeida Souza.
 
 # HUFFMAN
