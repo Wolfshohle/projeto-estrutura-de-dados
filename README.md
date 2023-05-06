@@ -14,3 +14,8 @@ Os dados foram gerados em C e passados para python para que pudesse ser feita a 
 
 # ÁRVORE B
 Slide sobre a estrutura de árvore B que não foi vista em sala de aula.
+
+# Autores
+
+| [<img src="https://avatars.githubusercontent.com/u/112727821?v=4" width=115><br><sub>Wolfshohle</sub>](https://github.com/Wolfshohle) |  [<img src="https://avatars.githubusercontent.com/u/61315262?v=4" width=115><br><sub>João Pedro</sub>](https://github.com/joaopedrosss) |  [<img src="https://avatars.githubusercontent.com/u/116766037?v=4" width=115><br><sub>carlosvscs</sub>](https://github.com/carlosvscs) |
+| :---: | :---: | :---: |
