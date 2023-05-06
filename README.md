@@ -1,4 +1,4 @@
-<img src="/assets/logoic.png" alt="Logo IC"> <img src="/assets/logoufal.png" alt="Logo UFAL">
+<img src="/assets/logoic.png" alt="Logo IC">
 
 # ESTRUTURA DE DADOS
 Projeto feto para a matérica de estrutura de dados UFAL - A.C.simões - Maceió - AL
