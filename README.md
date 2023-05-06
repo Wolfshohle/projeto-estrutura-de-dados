@@ -2,7 +2,6 @@
 
 # ESTRUTURA DE DADOS
 Projeto feto para a matérica de estrutura de dados UFAL - A.C.simões - Maceió - AL
-
 Alunos:CARLOS VINICIUS DE SOUZA, JOÃO PEDRO SIMÕES DA SILVA SOUZA, MATHEUS ALMEIDA SOUZA
 
 # HUFFMAN
