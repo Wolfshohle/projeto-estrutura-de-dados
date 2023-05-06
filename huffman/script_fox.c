@@ -1,55 +1,123 @@
-#include "compress.h"
 
+/**
+* File compressor and decompressor project created for the data structure discipline.
+* Federal University of Alagoas - Campus A.C.Simões
+*
+* @author  CARLOS VINICIUS DE SOUZA CASSIMIRO, JOÃO PEDRO SIMÕES DA SILVA SOUSA, MATHEUS ALMEIDA SOUZA
+* @version 1.0
+* @since   04-12-2023 
+*/
 
-//modificar essa função depois
-//localiza o arquivo com base no nome, caso o arquivo esteja dentro da mesma pasta que o codigo
-void* get_archive_name_and_open(FILE **archive)
+#include "zip.h"
+#include "unzip.h"
+
+//pega o nome do arquivo
+/**
+* Pega o nome do arquivo
+* a funcao get_name() recebe o nome do arquivo a ser compactado ou descompactado. Ela ainda verifica se o tamanho maximo do nome digitado,
+* se o arquivo exite no diretorio do programa e se ele e .huff.
+*
+* @param     archive_name     Um ponteiro para o vetor de nome do arquivo
+* @param      opc_check       Se esta compactando ou descompactando
+*/
+void get_name(char *archive_name, int opc_check)
 {
-    char archive_name[106], letter;
-    size_t i, j, cont = 0;
-    printf("\nEnter a file name with file type with a maximum of 100 characters\nExemple: archive.txt\n> ");
-    while(*archive == NULL)
+    int i = 0, archive_name_size;
+    char a;
+    FILE *archive_test = NULL;
+    //se for compactar
+    if(opc_check == 1)
     {
-        i = 0;
-        *archive = NULL;
-        if(archive_name == NULL)
+        printf("\nEnter the name and type of the file to be compressed with a maximum of 100 characters.\nexemple: archive.type\n>");
+        while(archive_test == NULL)
         {
-            printf("\nError allocating memory for archive name\n\n");
-            exit(1);
-        }
-        scanf(" %c", &letter);
-        while(letter != '\n' && i < 100)
-        {
-            archive_name[i++] = letter;
-            scanf("%c", &letter);
-        }
-        //caso estoure o limite de 100 caracteres nos mandamos uma mensagem de erro e zeramos a entrada para que seja inserida uma nova
-        if(i >= 100)
-        {
-            printf("\nMaximum number of characters reached\nPlease enter an archive name with a maximum of 100 characters\n> ");
-            while(scanf("%c", &letter) != EOF && letter != '\n');
-        }
-        //caso a entrada não estoure o limite prosseguimos
-        else
-        {
-            archive_name[i] = '\0';
-            *archive = fopen(archive_name, "rb");
-            //caso o arquivo nao seja encontrado retornamos um erro
-            if(*archive == NULL)
+            i = 0;
+            scanf(" %c", &a);
+            while(a != '\n')
             {
-                printf("\nUnable to locate archive: %s\nPlease enter the name of a valid archive\n> ", archive_name);
+                archive_name[i++] = a;
+                if(i == 100)
+                {
+                    printf("\n\033[31mPlease enter file name up to 100 characters\n\033[0m>");
+                    break;
+                }
+                scanf("%c", &a);
+            }
+            if(i == 100)
+            {
+                //limpando a entrada
+                while(a != '\n')
+                {
+                    scanf("%c", &a);
+                }
+            }
+            else
+            {
+                archive_name[i] = '\0';
+                archive_test = fopen(archive_name, "rb");
+                if(archive_test == NULL)
+                {
+                    printf("\n\033[31mFile not found, please enter a valid file\n\033[0m>");
+                } 
             }
         }
+        fclose(archive_test);
+    }
+    //se for descompactar
+    else
+    {
+        printf("\nenter the name of the huffman type file to be unzipped with a maximum of 106 characters\nexemple: archive.type.huff\n>");
+        while(archive_test == NULL)
+        {
+            i = 0;
+            scanf(" %c", &a);
+            while(a != '\n')
+            {
+                archive_name[i++] = a;
+                if(i == 100)
+                {
+                    printf("\n\033[31mPlease enter file name up to 100 characters\n\033[0m>");
+                    break;
+                }
+                scanf("%c", &a);
+            }
+            if(i == 100)
+            {
+                //limpando a entrada
+                while(a != '\n')
+                {
+                    scanf("%c", &a);
+                }
+            }
+            else
+            {
+                archive_name[i] = '\0';
+                archive_name_size = strlen(archive_name);
+                if(archive_name[archive_name_size - 1] != 'f' || archive_name[archive_name_size - 2] != 'f' || archive_name[archive_name_size - 3] != 'u' || archive_name[archive_name_size - 4] != 'h' || archive_name[archive_name_size - 5] != '.')
+                {
+                    printf("\n\033[31mPlease insert only .huff files\n\033[0m>");
+                }
+                else
+                {
+                    archive_test = fopen(archive_name, "rb");
+                    if(archive_test == NULL)
+                    {
+                        printf("\n\033[31mFile not found, please enter a valid file\n\033[0m>");
+                    }
+                }
+            }
+        }
+        fclose(archive_test);
     }
 
-    //retornando o nome do arquivo para usarmos na hora que formos gravar os dados da compactacao
-    return archive_name;
+    return;
 }
 
 
 int main()
 {
     //APRESENTACAO DO PROGRAMA E OPCOES
+    printf("\033[33m");
     printf(" ==================================================================================================================================================\n");
     printf("| __          __         _                                       _                _____                 _           _       ______                 |\n");
     printf("| \\ \\        / /        | |                                     | |              / ____|               (_)         | |     |  ____|                |\n");
@@ -60,31 +128,32 @@ int main()
     printf("|                                                                                                          | |                                     |\n");
     printf("|                                                                                                          |_|                                     |\n");
     printf(" ==================================================================================================================================================\n");
-    printf("Create by: Wolfshohle\n");
+    printf("\033[0m");
+    printf("Create by: Wolfshohle, joaopedrosss, carlosvscs\n");
     int opc = 0;
     sleep(1);
     while(opc != 3)
     {
-        printf(" -----------------------------\n| SELECT ANY OF THE OPTIONS:  |\n -----------------------------\n| 1. compress                 |\n| 2. unzip                    |\n| 3. exit                     |\n -----------------------------\n");
+        printf("\033[34m -----------------------------\n\033[34m|\033[0m SELECT ANY OF THE OPTIONS:  \033[34m|\n -----------------------------\n\033[34m|\033[0m 1. compress                 \033[34m|\n|\033[0m 2. unzip                    \033[34m|\n|\033[0m 3. exit                     \033[34m|\n -----------------------------\n\033[0m");
         scanf("%d", &opc);
+        char archive_name[106];
         switch (opc)
         {
         case 1:
-            FILE *archive = NULL;
-            void *archive_name;
-            //pegando o arquivo e o nome dele
-            archive_name = get_archive_name_and_open(&archive);
-            printf("\nstarting file compression\n");
-            compress_archive(archive_name);
+            get_name(archive_name, 1);
+            printf("\n\033[32mstarting file compression\033[0m\n");
+            compress(archive_name);
             break;
         case 2:
-            unzip();
+            get_name(archive_name, 2);
+            printf("\n\033[32mstarting to unzip\033[0m\n");
+            descompressed(archive_name);
             break;
         case 3:
-            printf("Thanks for using the fox script!!\n");
+            printf("Thanks for using the script fox!!\n");
             break;
         default:
-            printf("Invalid option!\n");
+            printf("033[31mInvalid option!033[0m\n");
             break;
         }
     }
