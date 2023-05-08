@@ -221,7 +221,7 @@ long tree_size(TREE *tree_node)
 * A função create_dicionary() recebe a altura da arvore + 1 e cria um dicionario em forma de matriz para criarmos uma nova tabela de bits.
 * Ao finalizar a criacao ela retorna o endereco desse dicionario
 *
-* @param     tree_size     O tamanho da arvore + 1.
+* @param     tree_size     A altura da arvore + 1.
 * @return                  Um ponteiro para o endereco do dicionario criado
 */
 uint8_t** create_dicionary(int tree_size)
