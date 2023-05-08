@@ -3,7 +3,7 @@
 * File compressor and decompressor project created for the data structure discipline.
 * Federal University of Alagoas - Campus A.C.Simões
 *
-* @author  MATHEUS ALMEIDA SOUZA
+* @author  JOÃO PEDRO SIMÕES DA SILVA SOUZA, MATHEUS ALMEIDA SOUZA
 * @version 1.0
 * @since   04-12-2023 
 */
