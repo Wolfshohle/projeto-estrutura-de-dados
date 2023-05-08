@@ -17,5 +17,5 @@ Slide sobre a estrutura de árvore B que não foi vista em sala de aula.
 
 # Autores
 
-| [<img src="https://avatars.githubusercontent.com/u/112727821?v=4" width=115><br><sub>Wolfshohle</sub>](https://github.com/Wolfshohle) |
-| :---: |
+| [<img src="https://avatars.githubusercontent.com/u/112727821?v=4" width=115><br><sub>Wolfshohle</sub>](https://github.com/Wolfshohle) |  [<img src="https://avatars.githubusercontent.com/u/61315262?v=4" width=115><br><sub>João Pedro</sub>](https://github.com/joaopedrosss) |
+| :---: | :---: |
