@@ -275,7 +275,8 @@ void descompressed(char *archive_name)
         exit(1);
     }
     write_file(descompressed_file, data, file_size, i, hft_descompressed, bits_trash);
-
+    fclose(descompressed_file);
+    
     //liberando o espaço
     printf("\nClearing all allocated memory\n");
     free(data);

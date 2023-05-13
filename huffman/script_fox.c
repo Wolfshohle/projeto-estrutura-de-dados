@@ -3,8 +3,8 @@
 * File compressor and decompressor project created for the data structure discipline.
 * Federal University of Alagoas - Campus A.C.Simões
 *
-* @author  JOÃO PEDRO SIMÕES DA SILVA SOUZA, MATHEUS ALMEIDA SOUZA
-* @version 1.0
+* @author  MATHEUS ALMEIDA SOUZA
+* @version 1.1
 * @since   04-12-2023 
 */
 
@@ -129,7 +129,7 @@ int main()
     printf("|                                                                                                          |_|                                     |\n");
     printf(" ==================================================================================================================================================\n");
     printf("\033[0m");
-    printf("Create by: Wolfshohle, joaopedrosss, carlosvscs\n");
+    printf("Create by: Wolfshohle\n");
     int opc = 0;
     sleep(1);
     while(opc != 3)
@@ -137,26 +137,24 @@ int main()
         printf("\033[34m -----------------------------\n\033[34m|\033[0m SELECT ANY OF THE OPTIONS:  \033[34m|\n -----------------------------\n\033[34m|\033[0m 1. compress                 \033[34m|\n|\033[0m 2. unzip                    \033[34m|\n|\033[0m 3. exit                     \033[34m|\n -----------------------------\n\033[0m");
         scanf("%d", &opc);
         char archive_name[106];
-        switch (opc)
+        if(opc == 1)
         {
-        case 1:
             get_name(archive_name, 1);
             printf("\n\033[32mstarting file compression\033[0m\n");
             compress(archive_name);
-            break;
-        case 2:
+        }
+        else if(opc == 2)
+        {
             get_name(archive_name, 2);
             printf("\n\033[32mstarting to unzip\033[0m\n");
             descompressed(archive_name);
-            break;
-        case 3:
-            printf("Thanks for using the script fox!!\n");
-            break;
-        default:
-            printf("033[31mInvalid option!033[0m\n");
-            break;
+        }
+        else if(opc != 1 && opc != 2 && opc != 3)
+        {   
+            printf("\033[31mInvalid option!\033[0m\n");
         }
     }
+    printf("Thanks for using the script fox!!\n");
 
     return 0;
 }
